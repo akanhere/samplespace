@@ -11,6 +11,9 @@ var person1 = new Person(1, "John Smith");
 var person2 = new Person(2, "Jane Doe");
 var person3 = new Person(3, "Bob Johnson");
 var person4 = new Person(4, "Emily Lee");
+var person5 = new Person(5, "New Person");
+
+var allPeople = new List<Person> { person1, person2, person3, person4, person5 };
 
 // Instantiate Task objects
 var task1 = new ProjectTask(1, "Design UI", new DateTime(2023, 5, 15, 9, 0, 0), new DateTime(2023, 5, 15, 12, 0, 0), TaskStatus.NotStarted, new DateTime(2023, 5, 17));
@@ -35,7 +38,8 @@ project2.AssignPerson(person2, task6);
 Project project3 = new Project(3, "Project 3");
 DateTime startDate = DateTime.Parse("2023-06-12");
 List<Person> availablePeople = new List<Person>();
-foreach (Person person in project1.AssignedPersons.Concat(project2.AssignedPersons))
+//foreach (Person person in project1.AssignedPersons.Concat(project2.AssignedPersons))
+foreach (Person person in allPeople)
 {
     DateTime nextAvailableDate = person.NextAvailableDate(startDate);
     if (nextAvailableDate <= startDate)
